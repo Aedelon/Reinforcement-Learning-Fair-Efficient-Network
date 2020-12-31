@@ -17,13 +17,13 @@ if __name__ == "__main__":
             with open(file_name + ".sh", "w") as file:
                 file.write(template_text.format(file_name, *args))
         # test network density for controler
-        for controler_layer_size in (64, 128, 256):
+        for controler_layer_size in (64, 256):
             args = [i_name, n_episode, max_steps, 0.2, controler_layer_size, 256]
             file_name = "fen_" + "_".join([str(arg) for arg in args]).replace(".", "")
             with open(file_name + ".sh", "w") as file:
                 file.write(template_text.format(file_name, *args))
         # test network density for sub policies
-        for sub_policy_layer_size in (128, 256, 512):
+        for sub_policy_layer_size in (128, 512):
             args = [i_name, n_episode, max_steps, 0.2, 128, sub_policy_layer_size]
             file_name = "fen_" + "_".join([str(arg) for arg in args]).replace(".", "")
             with open(file_name + ".sh", "w") as file:
