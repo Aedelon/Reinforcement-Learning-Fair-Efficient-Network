@@ -13,7 +13,9 @@ if __name__ == "__main__":
 
     for fun in (job.main_loop, matthew.main_loop, plant.main_loop):
         thread_list.append(threading.Thread(target=fun, args=("simu{}".format(n_simu+1), ),
-                                            kwargs=dict(n_episode=n_episode, max_steps=max_steps, epsilon=eps)))
+                                            kwargs=dict(n_episode=n_episode, max_steps=max_steps, epsilon=eps,
+                                                        controler_layer_size=controler_layer_size,
+                                                        sub_policy_layer_size=sub_policy_layer_size)))
 
     for thread in thread_list:
         thread.start()
