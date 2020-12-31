@@ -1,11 +1,11 @@
 if __name__ == "__main__":
     thread_list = list()
-    n_simu = 3
+    n_simu = 5
     n_episode = 1000
     max_steps = 1000
 
     with open("template.sh") as template_file:
-        template_text = template_file.read().replace("\r", "")
+        template_text = template_file.read()
 
     # args = n_simu, n_episode, max_steps, eps, controler_layer_size, sub_policy_layer_size
 

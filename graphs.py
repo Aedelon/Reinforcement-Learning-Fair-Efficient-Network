@@ -92,6 +92,6 @@ if __name__ == "__main__":
                                                  "CV", "CV_std",
                                                  "min_uti", "min_uti_std",
                                                  "max_uti", "max_uti_std"])
-    with pd.option_context("display.max_columns", None, "display.width", None):
+    with pd.option_context("display.max_columns", None, "display.width", None, "display.max_colwidth", None):
         print(result_df)
     result_df.to_csv("data/result_df.csv")

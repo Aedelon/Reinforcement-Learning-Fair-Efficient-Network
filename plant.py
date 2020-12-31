@@ -411,3 +411,4 @@ def main_loop(name, n_episode=100000, max_steps=1000, epsilon=0.2, controler_lay
 		# print(score/max_steps)
 		# print(su)
 		# uti = np.array(su)/max_steps
+		# print(uti)
