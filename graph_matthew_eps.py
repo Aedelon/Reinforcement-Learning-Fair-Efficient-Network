@@ -21,7 +21,7 @@ if __name__ == "__main__":
     result_df = []
     for folder in os.listdir("data"):
         if os.path.isfile("data/" + folder) \
-                or not re.fullmatch("matthew_n_episode_1000_max_steps_1000_epsilon_(.*)"
+                or not re.fullmatch("matthew_n_episode_1000_max_steps_1000_epsilon_0\.1"
                                     "_controler_layer_size_128_sub_policy_layer_size_256", folder):
             continue
 
@@ -51,15 +51,15 @@ if __name__ == "__main__":
         reward_by_episode_mean = np.array([episode.mean() for episode in data_mean["meta_rewards"].values])
         reward_by_episode_mean = moving_average(reward_by_episode_mean)
         reward_by_episode_std = np.array([np.array([elem for elem in df["meta_rewards"]]).mean(axis=(1, 2))
-                                          for df in data_lst]).std(axis=0)
+                                          for df in data_lst]).std(axis=0) / 5**(1/2)
         reward_by_episode_std = moving_average(reward_by_episode_std)
         pd.DataFrame(reward_by_episode_mean).plot(ax=ax)
-        # plt.fill_between(range(len(reward_by_episode_mean)),
-        #                  reward_by_episode_mean - reward_by_episode_std,
-        #                  reward_by_episode_mean + reward_by_episode_std, alpha=0.1)
+        plt.fill_between(range(len(reward_by_episode_mean)),
+                         reward_by_episode_mean - reward_by_episode_std,
+                         reward_by_episode_mean + reward_by_episode_std, alpha=0.1)
         plt.xlabel("Episodes")
         plt.ylabel("Mean fair-efficient reward")
         # plt.savefig("data/{}/{}".format(folder, "mean_fair_efficient_reward.png"))
 
-    plt.legend(["0.1", "0.2", "0.3"])
+    plt.legend([])
     plt.show()
