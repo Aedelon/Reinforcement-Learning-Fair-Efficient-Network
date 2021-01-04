@@ -78,14 +78,21 @@ if __name__ == "__main__":
 
         n_episode = len(data_mean.index)
         result_df.append([folder,
-                          data_mean.at[n_episode, "utility"].sum(), np.array([df.at[n_episode, "utility"].sum()
-                                                                              for df in data_lst]).std(),
-                          data_mean.at[n_episode, "utility"].std(), np.array([df.at[n_episode, "utility"].std()
-                                                                              for df in data_lst]).std(),
-                          data_mean.at[n_episode, "utility"].min(), np.array([df.at[n_episode, "utility"].min()
-                                                                              for df in data_lst]).std(),
-                          data_mean.at[n_episode, "utility"].max(), np.array([df.at[n_episode, "utility"].max()
-                                                                              for df in data_lst]).std()])
+                          data_mean.at[n_episode, "utility"].sum(),
+                          np.array([df.at[n_episode, "utility"].sum() for df in data_lst]).std()
+                          / data_mean.at[n_episode, "utility"].sum(),
+
+                          data_mean.at[n_episode, "utility"].std(),
+                          np.array([df.at[n_episode, "utility"].std() for df in data_lst]).std()
+                          / data_mean.at[n_episode, "utility"].std(),
+
+                          data_mean.at[n_episode, "utility"].min(),
+                          np.array([df.at[n_episode, "utility"].min() for df in data_lst]).std()
+                          / data_mean.at[n_episode, "utility"].min(),
+
+                          data_mean.at[n_episode, "utility"].max(),
+                          np.array([df.at[n_episode, "utility"].max() for df in data_lst]).std()
+                          / data_mean.at[n_episode, "utility"].max()])
 
     result_df = pd.DataFrame(result_df, columns=["Params",
                                                  "Resource_utilization", "Resource_utilization_std",
@@ -94,4 +101,4 @@ if __name__ == "__main__":
                                                  "max_uti", "max_uti_std"])
     with pd.option_context("display.max_columns", None, "display.width", None, "display.max_colwidth", None):
         print(result_df)
-    result_df.to_csv("data/result_df.csv")
+    result_df.to_csv("data/result_df.csv", sep="&")
