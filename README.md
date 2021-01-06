@@ -21,4 +21,4 @@ Files about Matthew's Effect & Manufacturing Plant will be released **Soon(TM)**
 
 # Acknowledgements
 
-Computational resources have been provided by the Consor- tiumdesE ́quipementsdeCalculIntensif(CE ́CI),fundedby the Fonds de la Recherche Scientifique de Belgique (F.R.S.- FNRS) under Grant No. 2.5020.11 and by the Walloon Re- gion
+Computational resources have been provided by the Consortium des Equipements de Calcul Intensif (CECI), funded by the Fonds de la Recherche Scientifique de Belgique (F.R.S. - FNRS) under Grant No. 2.5020.11 and by the Walloon Region
