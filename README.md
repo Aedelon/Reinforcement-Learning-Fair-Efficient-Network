@@ -14,8 +14,9 @@ The easy-to-use files are:
 
 * job_w_hierarchy.py
 * job_wo_hierarchy.py
+* mattheww_hierarchy.py
 
-Files about Matthew's Effect & Manufacturing Plant will be released **Soon(TM)**
+File Manufacturing Plant and a easy-to-use implementation will be released **Soon(TM)**
 
 **Chris ADAM, Paul PARENT, Delanoe PIRARD & Chloé TERWAGNE**
 
